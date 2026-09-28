@@ -1,0 +1,17 @@
+.venv/
+web/node_modules/
+web/dist/
+web/*.tsbuildinfo
+build/
+__pycache__/
+data/*.json
+data/*.tmp
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/

@@ -1,0 +1,115 @@
+export type Config = {
+  name: string;
+  price: number;
+  duration: number;
+  seed: number;
+  volatility: number;
+  pressure: number;
+  latency: number;
+  fees: number;
+  noise: number;
+  execution: boolean;
+  target: number;
+  shock: boolean;
+  shockPct: number;
+  focal: string;
+};
+export type Bot = {
+  id: number;
+  name: string;
+  kind: string;
+  cash: number;
+  inventory: number;
+  reservedCash: number;
+  reservedShares: number;
+  fees: number;
+  pnl: number;
+  midPnl: number;
+  realized: number;
+  unrealized: number;
+  volume: number;
+  bought: number;
+  averageFill: number;
+  executionCost: number;
+  shortfall: number;
+  maxInventory: number;
+  drawdown: number;
+  actions: string[];
+  quotes: { id: number; side: string; price: number; quantity: number }[];
+};
+export type Point = {
+  time: number;
+  price: number;
+  value: number;
+  spread: number;
+  pnl: number[];
+};
+export type Snapshot = {
+  version: string;
+  time: number;
+  events: number;
+  done: boolean;
+  price: number;
+  value: number;
+  volume: number;
+  tradeCount: number;
+  fees: number;
+  spread: number | null;
+  averageSpread: number;
+  averageDepth: number;
+  bots: Bot[];
+  bids: Level[];
+  asks: Level[];
+  trades: Trade[];
+  history: Point[];
+  changes: { time: number; type: string; percent: number }[];
+  config: Config;
+  running?: boolean;
+  speed?: number;
+};
+export type Level = { price: number; quantity: number };
+export type Trade = {
+  id: number;
+  time: number;
+  price: number;
+  quantity: number;
+  side: string;
+};
+export type Run = {
+  id: string;
+  created: number;
+  name: string;
+  seed: number;
+  time: number;
+  done: boolean;
+  trades: number;
+};
+export type Replay = {
+  id: string;
+  created: number;
+  snapshot: Snapshot;
+  frames: Omit<Snapshot, "history">[];
+};
+export type Summary = {
+  mean: number;
+  low: number;
+  high: number;
+  worst: number;
+  best: number;
+  median: number;
+  values: number[];
+};
+export type Result = {
+  id: string;
+  version: string;
+  config: Config;
+  runs: number;
+  fixed: Summary;
+  inventory: Summary;
+  difference: Summary;
+  rows: {
+    seed: number;
+    fixed: Record<string, number>;
+    inventory: Record<string, number>;
+  }[];
+};

@@ -1,0 +1,16 @@
+name: Feature request
+description: Suggest a specific addition or improvement.
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe how you would use it and any simulation assumptions it changes.
+    validations:
+      required: true

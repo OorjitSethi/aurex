@@ -1,0 +1,16 @@
+{
+  "name": "Balanced market",
+  "price": 100,
+  "duration": 240,
+  "seed": 42,
+  "volatility": 0.8,
+  "pressure": 0,
+  "latency": 80,
+  "fees": 1,
+  "noise": 6,
+  "execution": true,
+  "target": 200,
+  "shock": false,
+  "shockPct": -2,
+  "focal": "inventory"
+}
